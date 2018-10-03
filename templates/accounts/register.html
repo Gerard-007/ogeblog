@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% load bootstrap4 %}
+
+{% block title %}register{% endblock %}
+
+{% block content %}
+
+<div class="signup-page" >
+
+	<div class="page-header section-image">
+  <div class="page-header-image" style="background-image:url('https://res.cloudinary.com/hwz12fud7/image/upload/v1537993883/media/musicadence/choir.jpg')"></div>
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 ml-auto mr-auto">
+                    <div class="info info-horizontal">
+                        <div class="icon icon-primary">
+                            <i class="fa fa-line-chart"></i>
+                        </div>
+                        <div class="description">
+                            <h5 class="info-title">Marketing</h5>
+                            <p class="description">
+                                We've created the marketing campaign of the website. It was a very interesting collaboration.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="info info-horizontal">
+                        <div class="icon icon-primary">
+                            <i class="fa fa-sitemap"></i>
+                        </div>
+                        <div class="description">
+                            <h5 class="info-title">Fully Coded in HTML5</h5>
+                            <p class="description">
+                                We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="info info-horizontal">
+                        <div class="icon icon-info">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <div class="description">
+                            <h5 class="info-title">Built Audience</h5>
+                            <p class="description">
+                                There is also a Fully Customizable CMS Admin Dashboard for this product.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 ml-auto mr-auto">
+									<!--
+									<div class="card card-signup">
+											<div class="card-body">
+											-->
+                            <h4 class="text-center text-muted">Register</h4>
+                            <div class="social text-center">
+                                <button class="btn btn-icon btn-round btn-twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </button>
+                                <button class="btn btn-icon btn-round btn-dribbble">
+                                    <i class="fa fa-instagram"></i>
+                                </button>
+                                <button class="btn btn-icon btn-round btn-facebook">
+                                    <i class="fa fa-facebook"> </i>
+                                </button>
+                                <h5 class="card-description"> or be classical </h5>
+                            </div>
+
+
+                            <form method="POST">
+																	{% csrf_token %}
+																	{% bootstrap_form form %}
+																	<input type='submit' value='register' class='btn btn-info btn-round btn-block'>
+                            </form>
+												<!--
+												</div>
+										</div>
+										-->
+                </div>
+            </div>
+        </div>
+    </div>
+	</div>
+</div>
+{% endblock %}
