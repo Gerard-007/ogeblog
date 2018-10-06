@@ -9,7 +9,7 @@ from accounts import forms
 
 
 class LoginView(generic.FormView):
-	form_class = AuthenticationForm
+	form_class = forms.CustomAuthForm
 	success_url = reverse_lazy("home")
 	template_name = "accounts/login.html"
 

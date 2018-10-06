@@ -18,16 +18,27 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from ogeblog.views import home
+# from ogeblog.views import home
+from accounts import views
+from . import views
+
 
 urlpatterns = [
-    url(r"^$", home, name="home"),
+    # url(r"^$", home, name="home"),
     url(r'^admin/', include(admin.site.urls)),
     url(r"^ckeditor/", include("ckeditor_uploader.urls")),
     url(r"^accounts/", include("accounts.urls", namespace="accounts")),
     # This look through the registrations folder an log users
 	# also @ settings.py we put LOGIN_REDIRECT_URL="page"
     url(r"^accounts/", include("django.contrib.auth.urls")),
+    # url(r"^articles/", include("articles.urls", namespace="articles")),
+    url(r'^category/(?P<pk>[\w-]+)/$', views.ArticleCategory.as_view(), name='article_category'),
+	url(r'^delete/(?P<slug>[\w-]+)/$', views.ArticleDelete.as_view(), name='article_delete'),
+	url(r'^update/(?P<slug>[\w-]+)/$', views.ArticleUpdate.as_view(), name='article_update'),
+	url(r'^dashboard/$', views.DashBoard.as_view(), name='article_dashboard'),
+	url(r'^create/$', views.ArticleCreate.as_view(), name='article_create'),
+	url(r'^details/(?P<slug>[\w-]+)$', views.ArticleDetail.as_view(), name='article_detail'),
+	url(r'^$', views.ArticleList.as_view(), name='article_list'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

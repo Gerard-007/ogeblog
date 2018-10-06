@@ -1,0 +1,12 @@
+<ul class="list-unstyled">
+  {% for post in latest_posts %}
+  <li class="media">
+    <img class="d-flex mr-3" src="{{post.get_img_url.url}}" alt="{{post.title}}">
+      <div class="media-body">
+          <h5 class="mt-0 mb-2 font-weight-bold"><a href="{{post.get_absolute_url}}"></a>{{post.title}}</h5>
+          <!--Review-->
+          <p>{{post.content|truncatewords:10}}</p>
+      </div>
+  </li>
+  {% endfor %}
+</ul>

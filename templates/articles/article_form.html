@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block title %}article_create{% endblock title %}
+
+{% block content %}
+<!-- Material input -->
+
+
+      <!--     *********     HEADER 1      *********      -->
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+            <div class="container">
+                <div class="row">
+
+                  <div class="card col-md-8 ml-auto mr-auto" style="background: #f2f3f4;">
+                    <br>
+                    <br>
+                    <form method="POST" enctype="multipart/form-data" action="" class="header-filter">
+                      {% csrf_token %}
+                      <br>
+                      {% bootstrap_form form%}
+                      <br>
+                      <button type="submit" class="btn btn-info btn-md" value="save">
+                        <i class="fa fa-save"></i>
+                        save
+                      </button>
+                    </form>
+                    </div>
+
+                </div>
+              </div>
+
+<!--     *********    END HEADER 1      *********      -->
+
+{% endblock %}

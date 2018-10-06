@@ -10,13 +10,13 @@
 		            <span class="icon-bar"></span>
 		            <span class="icon-bar"></span>
         		</button>
-        		<a class="navbar-brand" href="{% url 'home' %}">ogeblog</a>
+        		<a class="navbar-brand" href="{% url 'article_list' %}">ogeblog</a>
         	</div>
 
         	<div class="collapse navbar-collapse">
         		<ul class="nav navbar-nav navbar-center">
 	    				<li>
-								<a href="{% url 'home' %}">
+								<a href="{% url 'article_list' %}">
 									<i class="material-icons">home</i> home
 								</a>
 							</li>
@@ -31,13 +31,13 @@
 
 						<ul class="nav navbar-nav navbar-right">
 	    				<li>
-								<a href="{% url 'home' %}">
+								<a href="{% url 'accounts:login' %}">
 									<i class="material-icons">person</i> login
 								</a>
 							</li>
 
 							<li>
-								<a href="#geetech" target="_blank" class="btn btn-white btn-simple">
+								<a href="{% url 'accounts:signup' %}" target="_blank" class="btn btn-white btn-simple">
 									<i class="material-icons">person_add</i> register
 								</a>
 							</li>

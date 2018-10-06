@@ -15,11 +15,11 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME':
-#     'API_KEY':
-#     'API_SECRET':
-# }
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'hjlrgf2ah',
+    'API_KEY': '592597596923768',
+    'API_SECRET': '3ZB1iJMDinY71fIFhmsaxLGpTBA'
+}
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -34,7 +34,7 @@ SECRET_KEY = '!=l=q4hbur312j94d93*1wk-i0)ho@x=zs44e4273@yb8(gxgz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     'bootstrap4',
 
     # My apps
-    'accounts'
+    'accounts',
+    'ogeblog',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'

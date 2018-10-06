@@ -1,0 +1,199 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block title %}article_detail{% endblock title %}
+
+{% block content %}
+<div class="blog-post">
+
+	<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ article.image_url }}');">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<h2 class="title">{{article.title}}</h2>
+					<h4>{{article.description|safe|truncatewords:10}}</h4>
+					<br />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="main main-raised">
+		<div class="container">
+            <div class="section section-text">
+                <div class="row">
+    				<div class="col-md-8 col-md-offset-2">
+        				<h3 class="title">{{article.title}}</h3>
+    					<p>{{ article.description|safe|linebreaks }}</p>
+					  </div>
+
+					<div class="col-md-8 col-md-offset-2">
+						<h3 class="title">Rest of the Story:</h3>
+						<p>{{ article.body|safe|linebreaks }}</p>
+
+    			</div>
+				</div>
+			</div>
+
+			<div class="section section-blog-info">
+                <div class="row">
+					<div class="col-md-8 col-md-offset-2">
+
+						<div class="row">
+							<div class="col-md-6">
+
+								<div class="blog-tags mb-5">
+									Tags:
+									<span class="label label-primary">{{article.category}}</span>
+								</div>
+							</div>
+              <!---
+							<div class="col-md-6">
+								<a href="#pablo" class="btn btn-google btn-round pull-right">
+									<i class="fa fa-google"></i> 232
+								</a>
+								<a href="#pablo" class="btn btn-twitter btn-round pull-right">
+									<i class="fa fa-twitter"></i> 910
+								</a>
+								<a href="#pablo" class="btn btn-facebook btn-round pull-right">
+									<i class="fa fa-facebook-square"></i> 872
+								</a>
+							</div>
+            -->
+						</div>
+
+						<hr />
+
+						<div class="card card-profile card-plain">
+							<div class="row">
+								<div class="col-md-2">
+									<div class="card-avatar">
+										<a href="#pablo">
+											<img class="img" src="{{article.author.image_url}">
+										</a>
+									<div class="ripple-container"></div></div>
+								</div>
+								<div class="col-md-8">
+									<h4 class="card-title">{{article.author.username}}</h4>
+									<p class="description">{{article.author.bio}}</p>
+								</div>
+								<div class="col-md-2">
+									<button type="button" class="btn btn-default pull-right btn-round">Follow</button>
+								</div>
+							</div>
+						</div>
+
+					</div>
+    			</div>
+            </div>
+
+			<div class="section section-comments">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="media-area">
+              {% with comments.count as total_comments %}
+                <h3 class="title text-center">{{ total_comments }} Comment{{ total_comments|pluralize }}</h3>
+              {% endwith %}
+
+              {% for comment in comments %}
+							<div class="media">
+								<a class="pull-left" href="#geetech">
+									<div class="avatar">
+										<img class="media-object" src="{{comment.by.image_url}}" alt="{{comment.by.username}}"/>
+									</div>
+								</a>
+								<div class="media-body">
+									<h4 class="media-heading">{{comment.by.username}} <small>&middot; {{comment.created_on}}</small></h4>
+									<h6 class="text-muted"></h6>
+									<p>{{comment.content}}</p>
+
+                  <!--
+									<div class="media-footer">
+										<a href="#pablo" class="btn btn-primary btn-simple pull-right" rel="tooltip" title="Reply to Comment">
+											<i class="material-icons">reply</i> Reply
+										</a>
+										<a href="#pablo" class="btn btn-danger btn-simple pull-right">
+											<i class="material-icons">favorite</i> 243
+										</a>
+									</div>
+                  -->
+
+								</div>
+							</div>
+
+              {% empty %}
+                  <h4 class="title text-center">No comment yet be the first to comment...</h3>
+              {% endfor %}
+						</div>
+
+						  <h3 class="title text-center">Post your comment</h3>
+						  <div class="media media-post">
+							  <a class="pull-left author" href="#geetech">
+								  <div class="avatar">
+										<img class="media-object" alt="{{user.username}}" src="{{user.image_url}}">
+								  </div>
+							  </a>
+							  <div class="media-body">
+                  <form class="media-body" action="" method="post">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <!--
+                    <textarea class="form-control" placeholder="Write some nice stuff or nothing..." rows="6"></textarea>
+                    -->
+                    <div class="media-footer">
+                      <button type="submit" class="btn btn-primary btn-round btn-wd pull-right"><i class="fa fa-reply"></i> reply</button>
+  									</div>
+                  </form>
+							  </div>
+						  </div> <!-- end media-post -->
+					</div>
+				</div>
+			</div>
+
+        </div>
+    </div>
+
+	<div class="section">
+		<div class="container">
+			<div class="row">
+
+
+				<div class="col-md-12">
+					<h2 class="title text-center">Similar Stories</h2>
+					<br />
+					<div class="row">
+
+            <div class="col-md-4">
+							<div class="card card-blog">
+								<div class="card-image">
+									<a href="#pablo">
+										<img class="img img-raised" src="../assets/img/examples/blog6.jpg" />
+									</a>
+								</div>
+
+								<div class="card-content">
+									<h6 class="category text-info">Enterprise</h6>
+									<h4 class="card-title">
+										<a href="#pablo">Autodesk looks to future of 3D printing with Project Escher</a>
+									</h4>
+									<p class="card-description">
+										Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses.<a href="#pablo"> Read More </a>
+									</p>
+								</div>
+							</div>
+						</div>
+
+  					</div>
+  				</div>
+
+  			</div>
+        {% if user.is_superuser %}
+            <p><a href="{% url 'article_update' slug=article.slug %}">Edit</a></p>
+        {% endif %}
+  		</div>
+	   </div>
+     
+</div>
+
+{% endblock content %}
