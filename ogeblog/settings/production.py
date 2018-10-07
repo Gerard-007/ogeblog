@@ -32,7 +32,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = '!=l=q4hbur312j94d93*1wk-i0)ho@x=zs44e4273@yb8(gxgz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -59,6 +59,7 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
+LOGIN_SUCCESS_URL = 'article_list'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
