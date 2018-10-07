@@ -59,6 +59,7 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
+LOGIN_SUCCESS_URL = 'article_list'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -37,7 +37,7 @@
 			</div>
 
 			<div class="section section-blog-info">
-                <div class="row">
+        <div class="row">
 					<div class="col-md-8 col-md-offset-2">
 
 						<div class="row">
@@ -70,7 +70,7 @@
 								<div class="col-md-2">
 									<div class="card-avatar">
 										<a href="#pablo">
-											<img class="img" src="{{article.author.image_url}">
+											<img class="img" src="{{article.author.image_url}}">
 										</a>
 									<div class="ripple-container"></div></div>
 								</div>
@@ -85,8 +85,10 @@
 						</div>
 
 					</div>
-    			</div>
-            </div>
+    		</div>
+      </div>
+
+			<hr style="width:65%"/>
 
 			<div class="section section-comments">
 				<div class="row">
@@ -107,7 +109,8 @@
 									<h4 class="media-heading">{{comment.by.username}} <small>&middot; {{comment.created_on}}</small></h4>
 									<h6 class="text-muted"></h6>
 									<p>{{comment.content}}</p>
-
+									<br>
+									<br>
                   <!--
 									<div class="media-footer">
 										<a href="#pablo" class="btn btn-primary btn-simple pull-right" rel="tooltip" title="Reply to Comment">
@@ -126,6 +129,9 @@
                   <h4 class="title text-center">No comment yet be the first to comment...</h3>
               {% endfor %}
 						</div>
+
+						<br>
+						<hr />
 
 						  <h3 class="title text-center">Post your comment</h3>
 						  <div class="media media-post">
@@ -193,7 +199,7 @@
         {% endif %}
   		</div>
 	   </div>
-     
+
 </div>
 
 {% endblock content %}

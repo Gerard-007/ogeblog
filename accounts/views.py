@@ -10,7 +10,7 @@ from accounts import forms
 
 class LoginView(generic.FormView):
 	form_class = forms.CustomAuthForm
-	success_url = reverse_lazy("home")
+	success_url = reverse_lazy("article_list")
 	template_name = "accounts/login.html"
 
 	def get_form(self, form_class=None):
@@ -25,7 +25,7 @@ class LoginView(generic.FormView):
 
 
 class LogoutView(generic.RedirectView):
-	url = reverse_lazy("home")
+	url = reverse_lazy("article_list")
 
 	def get(self, request, *args, **kwargs):
 		logout(request)

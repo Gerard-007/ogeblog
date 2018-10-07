@@ -57,7 +57,7 @@ class ArticleComment(LoginRequiredMixin, generic.FormView):
 		return super(ArticleComment, self).form_valid(form)
 
 	def get_success_url(self):
-		return reverse('articles:article_detail', kwargs={'slug': self.kwargs['slug']})
+		return reverse('article_detail', kwargs={'slug': self.kwargs['slug']})
 
 class ArticleDetail(View):
 	def get(self, request, *args, **kwargs):
