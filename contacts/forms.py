@@ -8,7 +8,7 @@ class contactForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs.update({'placeholder': 'your name'})
-        self.fields['email'].widget.attrs.update({'placeholder': 'your email eg. email@example.com'})
-        self.fields['phone'].widget.attrs.update({'placeholder': 'your mobile eg. +234-8123456789'})
-        self.fields['comment'].widget.attrs.update({'rows': '3', 'placeholder': 'your message here...'})
+        self.fields['name'].widget.attrs.update({'placeholder': 'Your Name'})
+        self.fields['email'].widget.attrs.update({'placeholder': 'Your Email eg: email@example.com'})
+        self.fields['phone'].widget.attrs.update({'placeholder': 'Your Mobile eg: +234-8123456789'})
+        self.fields['comment'].widget.attrs.update({'rows': '3', 'placeholder': 'Your message here...'})
