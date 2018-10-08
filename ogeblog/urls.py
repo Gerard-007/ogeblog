@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 # from ogeblog.views import home
 from accounts import views
+from contacts.views import contact
 from . import views
 
 
@@ -31,6 +32,7 @@ urlpatterns = [
     # This look through the registrations folder an log users
 	# also @ settings.py we put LOGIN_REDIRECT_URL="page"
     url(r"^accounts/", include("django.contrib.auth.urls")),
+    url(r'^contact/$', contact, name='contact'),
     # url(r"^articles/", include("articles.urls", namespace="articles")),
     url(r'^category/(?P<pk>[\w-]+)/$', views.ArticleCategory.as_view(), name='article_category'),
 	url(r'^delete/(?P<slug>[\w-]+)/$', views.ArticleDelete.as_view(), name='article_delete'),

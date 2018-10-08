@@ -14,7 +14,7 @@
         	</div>
 
         	<div class="collapse navbar-collapse">
-        		<ul class="nav navbar-nav navbar-center">
+        		<ul class="nav navbar-nav navbar-right">
 	    				<li>
 								<a href="{% url 'article_list' %}">
 									<i class="material-icons">home</i> home
@@ -22,51 +22,52 @@
 							</li>
 
 							<li>
-								<a href="#geetech" target="_blank" class="btn btn-white btn-simple">
+								<a href="{% url 'contact' %}">
 									<i class="material-icons">email</i> contact us
 								</a>
 							</li>
+
+
+              {% if user.is_authenticated %}
+
+                <li class="dropdown">
+                    <a href="#geetech" class="profile-photo dropdown-toggle" data-toggle="dropdown">
+                        <div class="profile-photo-small">
+                            <img src="{{user.image_url}}" alt="{{user.username}}" class="img-circle img-responsive">
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">
+                            user options
+                        </li>
+                        <li>
+                            <a href="#geetech">@{{user.username}}</a>
+                        </li>
+                        {% if user.is_superuser %}
+                          <li>
+                              <a href="{% url 'article_dashboard' %}">Admin Dashboard</a>
+                          </li>
+                        {% endif %}
+                        <li class="divider"></li>
+                        <li><a href="{% url 'accounts:logout' %}">Sign out</a></li>
+                    </ul>
+                </li>
+              {% else %}
+                <li>
+                  <a href="{% url 'accounts:login' %}">
+                    <i class="material-icons">person</i> login
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{% url 'accounts:signup' %}">
+                    <i class="material-icons">person_add</i> register
+                  </a>
+                </li>
+              {% endif %}
+
         		</ul>
 
-						<ul class="nav navbar-nav navbar-right">
-            {% if user.is_authenticated %}
-              <li class="dropdown">
-                  <a href="#geetech" class="profile-photo dropdown-toggle" data-toggle="dropdown">
-                      <div class="profile-photo-small">
-                          <img src="{{user.image_url}}" alt="{{user.username}}" class="img-circle img-responsive">
-                      </div>
-                  </a>
-                  <ul class="dropdown-menu">
-                      <li class="dropdown-header">
-                          user options
-                      </li>
-                      <li>
-                          <a href="#geetech">@{{user.username}}</a>
-                      </li>
-                      {% if user.is_superuser %}
-                        <li>
-                            <a href="{% url 'article_dashboard' %}">Admin Dashboard</a>
-                        </li>
-                      {% endif %}
-                      <li class="divider"></li>
-                      <li><a href="{% url 'accounts:logout' %}">Sign out</a></li>
-                  </ul>
-              </li>
-            {% else %}
-	    				<li>
-								<a href="{% url 'accounts:login' %}">
-									<i class="material-icons">person</i> login
-								</a>
-							</li>
-
-							<li>
-								<a href="{% url 'accounts:signup' %}" target="_blank" class="btn btn-white btn-simple">
-									<i class="material-icons">person_add</i> register
-								</a>
-							</li>
-            {% endif %}
-            </ul>
-
-        	</div>
+        </div>
     	</div>
     </nav>

@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% load bootstrap4 %}
+
+{% block title %}contact us{% endblock title %}
+
+{% block content %}
+<div class="contact-page">
+
+  <div class="page-header header-filter header-small" data-parallax="true" style="background-image: url('../static/img/banners/mail-us-banner.jpg');">
+  		<div class="container">
+      		<div class="row">
+          		<div class="col-md-8 col-md-offset-2">
+                  <h3 class="title text-center">Wish to Contact Us...</h3>
+              </div>
+          </div>
+      </div>
+	</div>
+
+	<div class="main main-raised">
+		<div class="contact-content">
+    		<div class="container">
+            	<h2 class="title">Send us a message</h2>
+				<div class="row">
+					<div class="col-md-6">
+            {% if confirm_message %}
+                <p class="description">{{ confirm_message }} <i class="fa fa-check pr-2 btn btn-just-icon btn-round btn-success"></i>
+                  <br>
+                  <br>
+    						</p>
+            {% else %}
+                <p class="description">
+                  You can contact us with anything related to our Products. We'll get in touch with you as soon as possible.<br><br>
+                </p>
+            {% endif %}
+
+
+            {% if contact_form %}
+                <form method="post" action="">
+                  {% csrf_token %}
+                  {% bootstrap_form contact_form %}
+                  <div class="submit text-center">
+                    <input type="submit" class="btn btn-primary btn-raised btn-round" value="Contact Us" />
+                  </div>
+                </form>
+            {% endif %}
+					</div>
+              <div class="col-md-4 col-md-offset-2">
+    		        	<div class="info info-horizontal">
+          						<div class="icon icon-primary">
+          							<i class="material-icons">pin_drop</i>
+          						</div>
+          						<div class="description">
+          							<h4 class="info-title">Find us at the office</h4>
+          							<p> Bld Mihail Kogalniceanu, nr. 8,<br>
+                          7652 Bucharest,<br>
+                          Kano
+          							</p>
+          						</div>
+    		        	</div>
+                  <div class="info info-horizontal">
+          						<div class="icon icon-primary">
+          							<i class="material-icons">phone</i>
+          						</div>
+          						<div class="description">
+          							<h4 class="info-title">Give us a ring</h4>
+          							<p> Ogechukwu Enuka<br>
+                          +2347038282847<br>
+                          Mon - Fri, 8:00-22:00
+          							</p>
+          						</div>
+    		        	</div>
+    		        	<div class="info info-horizontal">
+          						<div class="icon icon-primary">
+          							<i class="material-icons">business_center</i>
+          						</div>
+          						<div class="description">
+          							<h4 class="info-title">Legal Information</h4>
+          							<p> Cethline Ltd.<br>
+                            VAT &middot; EN2341241<br>
+                            IBAN &middot; EN8732ENGB2300099123<br>
+                            Country &middot; Nigeria
+          							</p>
+          						</div>
+    		        	</div>
+				    </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+{% endblock %}
